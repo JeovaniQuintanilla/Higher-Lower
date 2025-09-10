@@ -6,4 +6,10 @@ class Card:
         self.face = face
     
 
+    def setSuit(self, suit):
+        self.suit = suit
+
+    
+
+    
     
