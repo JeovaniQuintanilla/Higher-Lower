@@ -13,6 +13,12 @@ class Card:
     def setFace(self,face):
         self.face = face
 
+    def getSuit(self):
+        return self.suit 
+    
+    
+
+    
 
     
 
