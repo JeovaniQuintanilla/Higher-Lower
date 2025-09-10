@@ -1,10 +1,9 @@
 
 class Card:
 
-    def __init__(self, suit= "", face= ""):
-        self.suit = suit
+    def __init__(self, face= "", suit= "" ):
         self.face = face
-    
+        self.suit = suit
 
     def setSuit(self, suit):
         self.suit = suit
@@ -21,5 +20,8 @@ class Card:
     def toString(self):
         return self.face + "_of_" + self.suit
 
-
+#main -- use to test code for file   
+s = Card("6","Clubs")
+print(s.toString())
+    
     
