@@ -18,9 +18,8 @@ class Card:
     def getFace(self):
         return self.face
 
-    
+    def toString(self):
+        return self.face + "_of_" + self.suit
 
-    
 
-    
     
