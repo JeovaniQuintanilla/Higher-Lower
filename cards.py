@@ -8,7 +8,6 @@ class Card:
 
     def setSuit(self, suit):
         self.suit = suit
-
     
     def setFace(self,face):
         self.face = face
@@ -16,7 +15,8 @@ class Card:
     def getSuit(self):
         return self.suit 
     
-    
+    def getFace(self):
+        return self.face
 
     
 
