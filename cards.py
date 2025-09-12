@@ -1,3 +1,4 @@
+import random #get a random num
 
 class Card:
 
@@ -33,8 +34,11 @@ class Deck:
             for face in self.faceName:
                 self.deck.append(Card(face,suit))
 
-    def pullACard(self, i):
-        card = self.deck.pop(i)
+    def pullACard(self):
+        idx = len(self.deck)
+        rand_place = random.randrange(idx)
+        card = self.deck.pop(rand_place)
+
         return card.toString()
 
 
@@ -50,7 +54,7 @@ print(len(d.deck)) #test size - 52
 print(d.deck[0].getFace()) #get Face - A
 print(d.deck[0].getSuit()) #get Suit - hearts
 
-print(d.pullACard(0)) #A_of_hearts
+print(d.pullACard()) 
 print(len(d.deck)) #test size - 51
     
     
