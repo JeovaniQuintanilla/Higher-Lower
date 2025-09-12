@@ -56,6 +56,10 @@ print(s.toString())
 #print(d.pullACard())
 
 d = Deck()
-ans = input("Welcome to higher or lower, care to play??") 
-    
+ans = input("Welcome to higher or lower, care to play?? - Y/N") 
+if ans=="Y" or ans=="y":
+    d.initDeck()
+    print("Deck was created!!")
+else:
+    print("Goodbye, maybe next time.")     
     
