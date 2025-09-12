@@ -48,7 +48,6 @@ class Deck:
 s = Card("6","Clubs")
 print(s.toString())
 
-
 #print(len(d.deck)) #test size - 52
 #print(d.deck[0].getFace()) #get Face - A
 #print(d.deck[0].getSuit()) #get Suit - hearts
@@ -56,10 +55,12 @@ print(s.toString())
 #print(d.pullACard())
 
 d = Deck()
-ans = input("Welcome to higher or lower, care to play?? - Y/N") 
+ans = input("Welcome to higher or lower, care to play?? - Y/N \ny") 
 if ans=="Y" or ans=="y":
     d.initDeck()
     print("Deck was created!!")
+    fcard = d.pullACard()
+    print(f"The first card is -> {fcard}")
 else:
     print("Goodbye, maybe next time.")     
     
