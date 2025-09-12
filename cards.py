@@ -39,7 +39,17 @@ class Deck:
         rand_place = random.randrange(idx)
         card = self.deck.pop(rand_place)
 
-        return card.toString()
+        return card
+    
+    def convertValue(self, c: Card):
+        val = c.getFace()
+        if val == "J" or val == "Q" or val == "K":
+            return "10"
+        elif val == "A":
+            return "1"
+        else:
+            return val
+        
 
 
 
@@ -55,12 +65,13 @@ print(s.toString())
 #print(d.pullACard())
 
 d = Deck()
-ans = input("Welcome to higher or lower, care to play?? - Y/N \ny") 
+ans = input("Welcome to higher or lower, care to play?? - Y/N \n") 
 if ans=="Y" or ans=="y":
     d.initDeck()
     print("Deck was created!!")
     fcard = d.pullACard()
-    print(f"The first card is -> {fcard}")
+    print(f"The first card is -> {fcard.toString()}")
+    print(d.convertValue(fcard)) #convert the letter value to number
 else:
     print("Goodbye, maybe next time.")     
     
