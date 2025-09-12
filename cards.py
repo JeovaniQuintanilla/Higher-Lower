@@ -63,6 +63,8 @@ print(s.toString())
 #print(d.deck[0].getSuit()) #get Suit - hearts
 #print(len(d.deck)) #test size - 51
 #print(d.pullACard())
+count = 0
+
 
 d = Deck()
 ans = input("Welcome to higher or lower, care to play?? - Y/N \n") 
