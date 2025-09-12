@@ -48,13 +48,14 @@ class Deck:
 s = Card("6","Clubs")
 print(s.toString())
 
-d = Deck()
-d.initDeck()
-print(len(d.deck)) #test size - 52
-print(d.deck[0].getFace()) #get Face - A
-print(d.deck[0].getSuit()) #get Suit - hearts
 
-print(d.pullACard()) 
-print(len(d.deck)) #test size - 51
+#print(len(d.deck)) #test size - 52
+#print(d.deck[0].getFace()) #get Face - A
+#print(d.deck[0].getSuit()) #get Suit - hearts
+#print(len(d.deck)) #test size - 51
+#print(d.pullACard())
+
+d = Deck()
+ans = input("Welcome to higher or lower, care to play??") 
     
     
