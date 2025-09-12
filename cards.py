@@ -33,6 +33,12 @@ class Deck:
             for face in self.faceName:
                 self.deck.append(Card(face,suit))
 
+    def pullACard(self, i):
+        card = self.deck.pop(i)
+        return card.toString()
+
+
+
 
 #main -- use to test code for file   
 s = Card("6","Clubs")
@@ -43,5 +49,8 @@ d.initDeck()
 print(len(d.deck)) #test size - 52
 print(d.deck[0].getFace()) #get Face - A
 print(d.deck[0].getSuit()) #get Suit - hearts
+
+print(d.pullACard(0)) #A_of_hearts
+print(len(d.deck)) #test size - 51
     
     
