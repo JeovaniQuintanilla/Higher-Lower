@@ -90,7 +90,6 @@ if ans=="Y" or ans=="y":
                 if val1 < val2:
                     count+=1
                     print(f"You were right, it was higher, point earned -> Score:{count}")
-                   
                 elif val1 == val2:
                     count+=1
                     print(f"Lucky, they were the same, I'll give you a point -> Score:{count}")
@@ -101,8 +100,7 @@ if ans=="Y" or ans=="y":
             case "lower":
                 if val1 > val2:
                     count+=1
-                    print(f"You were right, it was lower, point earned -> Score:{count}")
-                
+                    print(f"You were right, it was lower, point earned -> Score:{count}")               
                 elif val1 == val2:
                     count+=1
                     print(f"Lucky, they were the same, I'll give you a point -> Score:{count}")
