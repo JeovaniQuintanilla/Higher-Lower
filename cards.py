@@ -65,6 +65,7 @@ print(s.toString())
 #print(d.pullACard())
 count = 0
 attempt = True
+valid = True 
 
 
 d = Deck()
@@ -77,10 +78,15 @@ if ans=="Y" or ans=="y":
         fcard = d.pullACard()
         print(f"The first card is -> {fcard.toString()}")
         val1 = int(d.convertValue(fcard))
-
-        choice = input("Is the next card higher, or lower??\n").lower()
+           
+        while valid:
+            choice = input("Is the next card higher, or lower??\n").lower()
+            if choice in ("higher","lower"):
+                break  # valid, exit inner loop
+            else:
+                print("Invalid response, try again")
+            
         print(f"You chose -> {choice}.")
-
         sCard = d.pullACard()
         val2 = int(d.convertValue(sCard))
         print(f"Second card is -> {sCard.toString()}")
