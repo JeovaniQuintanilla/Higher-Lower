@@ -64,6 +64,7 @@ print(s.toString())
 #print(len(d.deck)) #test size - 51
 #print(d.pullACard())
 count = 0
+attempt = True
 
 
 d = Deck()
@@ -71,9 +72,14 @@ ans = input("Welcome to higher or lower, care to play?? - Y/N \n")
 if ans=="Y" or ans=="y":
     d.initDeck()
     print("Deck was created!!")
-    fcard = d.pullACard()
-    print(f"The first card is -> {fcard.toString()}")
-    print(d.convertValue(fcard)) #convert the letter value to number
+    
+    while attempt:
+        fcard = d.pullACard()
+        print(f"The first card is -> {fcard.toString()}")
+        val1 = d.convertValue(fcard)
+
+
+
 else:
     print("Goodbye, maybe next time.")     
     
