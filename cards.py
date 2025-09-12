@@ -78,6 +78,10 @@ if ans=="Y" or ans=="y":
         print(f"The first card is -> {fcard.toString()}")
         val1 = d.convertValue(fcard)
 
+        choice = input("Is the next card higher, or lower??\n")
+        print(f"You chose -> {choice}.")
+
+
 
 
 else:
