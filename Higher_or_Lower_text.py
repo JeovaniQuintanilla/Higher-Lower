@@ -6,7 +6,6 @@ count = 0
 attempt = True
 valid = True 
 
-
 d = Deck()
 ans = input("Welcome to higher or lower, care to play?? - Y/N \n") 
 if ans=="Y" or ans=="y":
@@ -21,7 +20,7 @@ if ans=="Y" or ans=="y":
         while valid:
             choice = input("Is the next card higher, or lower??\n").lower()
             if choice in ("higher","lower"):
-                break  # valid, exit inner loop
+                break 
             else:
                 print("Invalid response, try again")
             
