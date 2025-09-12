@@ -25,12 +25,23 @@ class Deck:
 
     def __init__(self):
         self.faceName = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-        self.suit = ["hearts", "diamonds", "spades", "clubs"]
+        self.suitType = ["hearts", "diamonds", "spades", "clubs"]
         self.deck = []
+
+    def initDeck(self):
+        for suit in self.suitType:
+            for face in self.faceName:
+                self.deck.append(Card(face,suit))
 
 
 #main -- use to test code for file   
 s = Card("6","Clubs")
 print(s.toString())
+
+d = Deck()
+d.initDeck()
+print(len(d.deck)) #test size - 52
+print(d.deck[0].getFace()) #get Face - A
+print(d.deck[0].getSuit()) #get Suit - hearts
     
     
