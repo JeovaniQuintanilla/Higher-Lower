@@ -17,9 +17,10 @@ sBtn = customtkinter.CTkButton(root)
 
 #Score Area
 score = customtkinter.CTkLabel(root, text="Score:")
+score.place(x=680, y=625)
 high_score = customtkinter.CTkLabel(root, text="High-Score:")
 high_score.place(x=650, y=600)
 
 
-label.pack(),submit.pack(),sBtn.pack(),score.pack()
+label.pack(),submit.pack(),sBtn.pack()
 root.mainloop()
