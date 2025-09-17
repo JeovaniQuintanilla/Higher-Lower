@@ -19,12 +19,13 @@ def test_function(event):
 #This is the player interaction
 label = customtkinter.CTkLabel(root, text="Welcome to Higher or Lower!")
 submit = customtkinter.CTkEntry(root, placeholder_text= "Enter your Guess..")
-sBtn = customtkinter.CTkButton(root)
+sBtn = customtkinter.CTkButton(root, text="Submit Guess")
 sBtn.bind('<Button-1>',test_function)
 
 #Score Area
 score = customtkinter.CTkLabel(root, text="Score:")
 score.place(x=680, y=625)
+#num1 = customtkinter(root)
 high_score = customtkinter.CTkLabel(root, text="High-Score:")
 high_score.place(x=650, y=600)
 
