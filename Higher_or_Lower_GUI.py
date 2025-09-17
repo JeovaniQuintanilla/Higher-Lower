@@ -21,5 +21,5 @@ high_score = customtkinter.CTkLabel(root, text="High-Score:")
 
 
 
-label.pack(),submit.pack(),sBtn.pack()
+label.pack(),submit.pack(),sBtn.pack(),score.pack(),high_score.pack()
 root.mainloop()
