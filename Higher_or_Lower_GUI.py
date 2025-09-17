@@ -10,8 +10,8 @@ root.geometry("800x700")
 root.title("Higher & Lower")
 
 label = customtkinter.CTkLabel(root, text="Welcome to Higher or Lower!")
+submit = customtkinter.CTkEntry(root, placeholder_text= "Enter your Guess..")
 
 
-
-label.pack()
+label.pack(),submit.pack()
 root.mainloop()
