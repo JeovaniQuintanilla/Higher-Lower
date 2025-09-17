@@ -17,6 +17,7 @@ sBtn = customtkinter.CTkButton(root)
 
 #Score Area
 score = customtkinter.CTkLabel(root, text="Score:")
+high_score = customtkinter.CTkLabel(root, text="High-Score:")
 
 
 
