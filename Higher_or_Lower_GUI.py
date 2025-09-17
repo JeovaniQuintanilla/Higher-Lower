@@ -11,7 +11,7 @@ root.title("Higher & Lower")
 
 label = customtkinter.CTkLabel(root, text="Welcome to Higher or Lower!")
 submit = customtkinter.CTkEntry(root, placeholder_text= "Enter your Guess..")
+sBtn = customtkinter.CTkButton(root)
 
-
-label.pack(),submit.pack()
+label.pack(),submit.pack(),sBtn.pack()
 root.mainloop()
