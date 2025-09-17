@@ -9,4 +9,9 @@ root = customtkinter.CTk()
 root.geometry("800x700")
 root.title("Higher & Lower")
 
+label = customtkinter.CTkLabel(root, text="Welcome to Higher or Lower!")
+
+
+
+label.pack()
 root.mainloop()
