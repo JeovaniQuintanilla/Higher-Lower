@@ -16,6 +16,7 @@ submit = customtkinter.CTkEntry(root, placeholder_text= "Enter your Guess..")
 sBtn = customtkinter.CTkButton(root)
 
 #Score Area
+score = customtkinter.CTkLabel(root, text="Score:")
 
 
 
