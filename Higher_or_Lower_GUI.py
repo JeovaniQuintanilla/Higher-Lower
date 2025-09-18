@@ -9,6 +9,7 @@ import random
 #Declaring global variables
 count = 0
 curr = Card()
+deck = Deck()
 
 
 
