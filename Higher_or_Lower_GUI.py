@@ -30,4 +30,8 @@ high_score = customtkinter.CTkLabel(root, text="High-Score:")
 high_score.place(x=650, y=600)
 
 label.pack(),submit.pack(),sBtn.pack()
-root.mainloop()
+
+
+
+if __name__ == "__main__":
+    root.mainloop()
