@@ -4,7 +4,13 @@ from tkinter import *
 from PIL import Image, ImageTk
 import random
 
-print("Welcome to the GUI verion of the game")
+#print("Welcome to the GUI verion of the game")
+#Declaring global variables
+count = 0
+
+
+
+
 
 root = customtkinter.CTk()
 root.geometry("800x700")
