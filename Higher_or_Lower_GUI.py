@@ -43,4 +43,7 @@ label.pack(),submit.pack(),sBtn.pack()
 
 
 if __name__ == "__main__":
+    deck.initDeck()
+    curr = deck.pullACard()
+    print(curr.toString())
     root.mainloop()
