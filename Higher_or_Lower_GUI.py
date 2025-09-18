@@ -11,24 +11,23 @@ count = 0
 curr = Card()
 deck = Deck()
 
-
-
-
-
-
-root = customtkinter.CTk()
-root.geometry("800x700")
-root.title("Higher & Lower")
-
+#define objects
 def test_function(event):
     num = random.randrange(10)
     label.configure(text=f"{num}")
     print(num)
 
 
+#--------------------GUI Components
+#This is properties for the pane
+root = customtkinter.CTk()
+root.geometry("800x700")
+root.title("Higher & Lower")
+
 #This is the player interaction
 label = customtkinter.CTkLabel(root, text="Welcome to Higher or Lower!")
 submit = customtkinter.CTkEntry(root, placeholder_text= "Enter your Guess..")
+
 sBtn = customtkinter.CTkButton(root, text="Submit Guess")
 sBtn.bind('<Button-1>',test_function)
 
