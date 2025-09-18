@@ -2,11 +2,14 @@
 import customtkinter
 from tkinter import *
 from PIL import Image, ImageTk
-import random
+from cards import Card, Deck
+import random 
 
 #print("Welcome to the GUI verion of the game")
 #Declaring global variables
 count = 0
+curr = Card()
+
 
 
 
