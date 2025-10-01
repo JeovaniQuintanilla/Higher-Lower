@@ -11,6 +11,9 @@ count = 0
 curr = Card()
 deck = Deck()
 
+
+#class Higherorlower(customtkinter.CTk): #---Transition to class game
+
 #define objects
 def confirmInput(event):
     ans = submitField.get()
