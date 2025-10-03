@@ -2,8 +2,9 @@
 import customtkinter
 from tkinter import *
 from PIL import Image, ImageTk
-from cards import Card, Deck
-import random 
+import random
+from cards import Card, Deck 
+from pathlib import Path
 
 #print("Welcome to the GUI verion of the game")
 #Declaring global variables
@@ -12,37 +13,35 @@ curr = Card()
 deck = Deck()
 
 
-#class Higherorlower(customtkinter.CTk): #---Transition to class game
+class Higherorlower(customtkinter.CTk):
 
-#define objects
-def confirmInput(event):
-    ans = submitField.get()
-    print(f"You typed {ans}") 
+    #define objects
+    def confirmInput(event):
+        self.ans = submitField.get()
+        print(f"You typed {ans}") 
 
+    
+    #--------------------GUI Components
+    #This is properties for the pane
+    root = customtkinter.CTk()
+    root.geometry("800x700")
+    root.title("Higher & Lower")
 
-#--------------------GUI Components
-#This is properties for the pane
-root = customtkinter.CTk()
-root.geometry("800x700")
-root.title("Higher & Lower")
+    #This is the player interaction
+    directionslabel = customtkinter.CTkLabel(root, text="Welcome to Higher or Lower!")
+    submitField = customtkinter.CTkEntry(root, placeholder_text= "Enter your Guess..")
 
-#This is the player interaction
-directionslabel = customtkinter.CTkLabel(root, text="Welcome to Higher or Lower!")
-submitField = customtkinter.CTkEntry(root, placeholder_text= "Enter your Guess..")
+    sBtn = customtkinter.CTkButton(root, text="Submit Guess")
+    sBtn.bind('<Button-1>',confirmInput)
 
-sBtn = customtkinter.CTkButton(root, text="Submit Guess")
-sBtn.bind('<Button-1>',confirmInput)
+    #Score Area
+    score = customtkinter.CTkLabel(root, text="Score:")
+    score.place(x=680, y=625)
+    #num1 = customtkinter(root)
+    high_score = customtkinter.CTkLabel(root, text="High-Score:")
+    high_score.place(x=650, y=600)
 
-#Score Area
-score = customtkinter.CTkLabel(root, text="Score:")
-score.place(x=680, y=625)
-#num1 = customtkinter(root)
-high_score = customtkinter.CTkLabel(root, text="High-Score:")
-high_score.place(x=650, y=600)
-
-directionslabel.pack(),submitField.pack(),sBtn.pack()
-
-
+    directionslabel.pack(),submitField.pack(),sBtn.pack()
 
 if __name__ == "__main__":
     deck.initDeck()
