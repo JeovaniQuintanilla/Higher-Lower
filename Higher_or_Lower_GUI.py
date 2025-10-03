@@ -31,6 +31,9 @@ class Higherorlower(customtkinter.CTk):
         print(self.curr.toString())
         self.createGameLayout()
 
+        self.card1.configure(image=self.img1)
+        self.card2.configure(image=self.boc)
+
     def confirmInput(self):
         self.ans = self.submitField.get().lower()
         print(self.ans)
