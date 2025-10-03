@@ -15,6 +15,10 @@ class Higherorlower(customtkinter.CTk):
 
     def __init__(self):
         super().__init__()
+        self.highscore = 0
+        self.count = 0
+        self.geometry("800x700")
+        self.title("Higher & Lower")   
         self.curr = Card()
         self.deck = Deck()
         self.deck.initDeck()
@@ -31,11 +35,7 @@ class Higherorlower(customtkinter.CTk):
             self.directionslabel.configure(text="Yay you can read")
 
     def createGameLayout(self):
-        self.highscore = 0
-        self.count = 0
-        
-        self.geometry("800x700")
-        self.title("Higher & Lower")        
+             
         self.directionslabel = customtkinter.CTkLabel(self, text="Welcome to Higher or Lower!")
         self.directionslabel.pack()
         
