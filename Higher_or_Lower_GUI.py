@@ -22,7 +22,6 @@ class Higherorlower(customtkinter.CTk):
         print(self.curr.toString())
         self.createGameLayout()
 
-    #define objects
     def confirmInput(self):
         self.ans = self.submitField.get().lower()
         print(self.ans)
@@ -44,7 +43,7 @@ class Higherorlower(customtkinter.CTk):
         self.submitField.pack()
 
         self.sBtn = customtkinter.CTkButton(self, text="Submit Guess")
-        self.sBtn.bind('<Button-1>',self.confirmInput())
+        self.sBtn.bind('<Button-1>',lambda e: self.confirmInput())
         self.sBtn.pack()
 
         self.scoreLabel = customtkinter.CTkLabel(self, text="Score:")
