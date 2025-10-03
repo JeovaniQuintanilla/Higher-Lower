@@ -8,7 +8,7 @@ from pathlib import Path
 
 #print("Welcome to the GUI verion of the game")
 #Declaring global variables
-count = 0
+
 
 
 class Higherorlower(customtkinter.CTk):
@@ -20,38 +20,34 @@ class Higherorlower(customtkinter.CTk):
         self.deck.initDeck()
         self.curr = self.deck.pullACard()
         print(self.curr.toString())
-
-
-
+        self.createGameLayout()
 
     #define objects
-    def confirmInput(event):
-        self.ans = submitField.get()
-        print(f"You typed {ans}") 
+    def confirmInput(self):
+        self.ans = self.submitField.get()
+        print(f"You typed {self.ans}") 
 
-    def createGameLayout():
-    
-    #--------------------GUI Components
-    #This is properties for the pane
-    root = customtkinter.CTk()
-    root.geometry("800x700")
-    root.title("Higher & Lower")
+    def createGameLayout(self):
+        self.highscore = 0
+        self.count = 0
+        
+        self.geometry("800x700")
+        self.title("Higher & Lower")        
+        self.directionslabel = customtkinter.CTkLabel(self, text="Welcome to Higher or Lower!")
+        self.directionslabel.pack()
+        
+        self.submitField = customtkinter.CTkEntry(self, placeholder_text= "Enter your Guess..")
+        self.submitField.pack()
 
-    #This is the player interaction
-    directionslabel = customtkinter.CTkLabel(root, text="Welcome to Higher or Lower!")
-    submitField = customtkinter.CTkEntry(root, placeholder_text= "Enter your Guess..")
+        self.sBtn = customtkinter.CTkButton(self, text="Submit Guess")
+        self.sBtn.bind('<Button-1>',self.confirmInput())
+        self.sBtn.pack()
 
-    sBtn = customtkinter.CTkButton(root, text="Submit Guess")
-    sBtn.bind('<Button-1>',confirmInput)
+        self.scoreLabel = customtkinter.CTkLabel(self, text="Score:")
+        self.scoreLabel.place(x=680, y=625)
+        self.high_scoreLabel = customtkinter.CTkLabel(self, text="High-Score:")
+        self.high_scoreLabel.place(x=650, y=600)
 
-    #Score Area
-    score = customtkinter.CTkLabel(root, text="Score:")
-    score.place(x=680, y=625)
-    #num1 = customtkinter(root)
-    high_score = customtkinter.CTkLabel(root, text="High-Score:")
-    high_score.place(x=650, y=600)
-
-    directionslabel.pack(),submitField.pack(),sBtn.pack()
 
 if __name__ == "__main__":
     root = Higherorlower()
