@@ -2,14 +2,15 @@
 import customtkinter
 from tkinter import *
 from PIL import Image, ImageTk
-import random
 from cards import Card, Deck 
 from pathlib import Path
+import os
 
 #print("Welcome to the GUI verion of the game")
 #Declaring global variables
 
-CARDS_FOLDER = "playingCards"
+
+CARDS_FOLDER = "Higher-Lower/playingCards"
 
 class Higherorlower(customtkinter.CTk):
 
@@ -18,9 +19,13 @@ class Higherorlower(customtkinter.CTk):
         self.highscore = 0
         self.count = 0
         self.geometry("800x700")
-        self.title("Higher & Lower")   
+        self.title("Higher & Lower")
+
         self.curr = Card()
         self.deck = Deck()
+        self.sCard = None
+        self.ans = " "
+
         self.deck.initDeck()
         self.curr = self.deck.pullACard()
         print(self.curr.toString())
@@ -36,6 +41,19 @@ class Higherorlower(customtkinter.CTk):
 
     def createGameLayout(self):
 
+        #Image of first Card
+        self.img1 = customtkinter.CTkImage(
+            light_image=Image.open(Path(CARDS_FOLDER) / f"{self.curr.toString()}.png"),
+            dark_image=Image.open(Path(CARDS_FOLDER) / f'{self.curr.toString()}.png'),
+            size=(100, 145)
+        )
+         #Back of Card
+        self.boc = customtkinter.CTkImage(
+            light_image=Image.open("Higher-Lower/Back_of_card.png"),
+            dark_image=Image.open("Higher-Lower/Back_of_card.png"),
+            size=(100, 145)
+        )
+       
         #card 1 place
         self.card1 = customtkinter.CTkLabel(self, text="", bg_color="white", image=None)
         self.card1.place(x=245, y=160)
