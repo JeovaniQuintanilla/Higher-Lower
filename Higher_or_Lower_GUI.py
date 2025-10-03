@@ -9,7 +9,7 @@ from pathlib import Path
 #print("Welcome to the GUI verion of the game")
 #Declaring global variables
 
-
+CARDS_FOLDER = "playingCards"
 
 class Higherorlower(customtkinter.CTk):
 
