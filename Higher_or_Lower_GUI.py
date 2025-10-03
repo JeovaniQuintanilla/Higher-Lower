@@ -24,8 +24,12 @@ class Higherorlower(customtkinter.CTk):
 
     #define objects
     def confirmInput(self):
-        self.ans = self.submitField.get()
-        print(f"You typed {self.ans}") 
+        self.ans = self.submitField.get().lower()
+        print(self.ans)
+        if self.ans != "lower" and self.ans != "higher":
+            self.directionslabel.configure(text="Invalid Guess Input, type either higher or lower.")
+        else:
+            self.directionslabel.configure(text="Yay you can read")
 
     def createGameLayout(self):
         self.highscore = 0
