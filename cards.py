@@ -19,7 +19,10 @@ class Card:
         return self.face
 
     def toString(self):
-        return self.face + "_of_" + self.suit
+        #return str(self.face + "_of_" + self.suit)
+        if not self.face or not self.suit:
+            raise ValueError("Card face or suit is empty!")
+        return f"{self.face}_of_{self.suit}"
     
 
 class Deck:
