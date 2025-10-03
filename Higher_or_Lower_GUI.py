@@ -35,6 +35,13 @@ class Higherorlower(customtkinter.CTk):
             self.directionslabel.configure(text="Yay you can read")
 
     def createGameLayout(self):
+
+        #card 1 place
+        self.card1 = customtkinter.CTkLabel(self, text="", bg_color="white", image=None)
+        self.card1.place(x=245, y=160)
+        #Card 2 place
+        self.card2 = customtkinter.CTkLabel(self, text="", bg_color="white", image=None)
+        self.card2.place(x=455.5, y=160)
              
         self.directionslabel = customtkinter.CTkLabel(self, text="Welcome to Higher or Lower!")
         self.directionslabel.pack()
