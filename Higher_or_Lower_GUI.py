@@ -9,17 +9,27 @@ from pathlib import Path
 #print("Welcome to the GUI verion of the game")
 #Declaring global variables
 count = 0
-curr = Card()
-deck = Deck()
 
 
 class Higherorlower(customtkinter.CTk):
+
+    def __init__(self):
+        super().__init__()
+        self.curr = Card()
+        self.deck = Deck()
+        self.deck.initDeck()
+        self.curr = self.deck.pullACard()
+        print(self.curr.toString())
+
+
+
 
     #define objects
     def confirmInput(event):
         self.ans = submitField.get()
         print(f"You typed {ans}") 
 
+    def createGameLayout():
     
     #--------------------GUI Components
     #This is properties for the pane
@@ -44,7 +54,5 @@ class Higherorlower(customtkinter.CTk):
     directionslabel.pack(),submitField.pack(),sBtn.pack()
 
 if __name__ == "__main__":
-    deck.initDeck()
-    curr = deck.pullACard()
-    print(curr.toString())
+    root = Higherorlower()
     root.mainloop()
