@@ -30,10 +30,11 @@ class Higherorlower(customtkinter.CTk):
         self.curr = self.deck.pullACard()
         print(self.curr.toString())
         self.createGameLayout()
-        
+
         self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower??")
         self.card1.configure(image=self.img1)
         self.card2.configure(image=self.boc)
+        self.sBtn.bind('<Button-1>', lambda e: self.confirmInput())
 
     def confirmInput(self):
         self.ans = self.submitField.get().lower()
