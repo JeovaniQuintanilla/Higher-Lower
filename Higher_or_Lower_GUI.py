@@ -61,6 +61,9 @@ class Higherorlower(customtkinter.CTk):
             self.sBtn.configure(state="normal")
             self.submitField.delete(0, "end")
 
+    def switchCards(self):
+        print("")
+
     def compareCards(self, cardX, cardY, ans):
         val1 = int(self.deck.convertValue(cardX))
         val2 = int(self.deck.convertValue(cardY))
