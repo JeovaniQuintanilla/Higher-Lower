@@ -117,9 +117,9 @@ class Higherorlower(customtkinter.CTk):
         self.sBtn.bind('<Button-1>',lambda e: self.confirmInput())
         self.sBtn.pack()
 
-        self.scoreLabel = customtkinter.CTkLabel(self, text=f"Score:")
+        self.scoreLabel = customtkinter.CTkLabel(self, text=f"Score: {self.count}")
         self.scoreLabel.place(x=680, y=625)
-        self.high_scoreLabel = customtkinter.CTkLabel(self, text="High-Score:")
+        self.high_scoreLabel = customtkinter.CTkLabel(self, text=f"High-Score:{self.high_score}")
         self.high_scoreLabel.place(x=650, y=600)
 
 
