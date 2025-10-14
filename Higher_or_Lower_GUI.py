@@ -61,6 +61,9 @@ class Higherorlower(customtkinter.CTk):
                 if val1 > val2:
                     flag = True
         return flag
+    
+    def updateScore(self):
+        print("")
 
     def createGameLayout(self):
         #Image of first Card
