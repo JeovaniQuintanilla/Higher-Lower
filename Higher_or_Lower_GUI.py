@@ -63,7 +63,11 @@ class Higherorlower(customtkinter.CTk):
         return flag
     
     def updateScore(self):
-        print("")
+        self.count+=1
+        self.scoreLabel.configure(text=f"Score: {self.count}")
+        if self.count > self.high_score:
+            self.high_score = self.count
+            self.high_scoreLabel.configure(text=f"High Score: {self.high_score}")
 
     def createGameLayout(self):
         #Image of first Card
