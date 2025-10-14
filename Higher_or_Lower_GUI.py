@@ -62,7 +62,17 @@ class Higherorlower(customtkinter.CTk):
             self.submitField.delete(0, "end")
 
     def switchCards(self):
-        print("")
+        if self.compareCards(self.curr, self.sCard, self.ans):
+            self.curr = self.sCard
+            self.img1 = self.img2
+            self.card1.configure(image=self.img1)
+        
+            self.updateScore()
+            self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower")
+            self.card2.configure(image=self.boc)
+        else:
+            self.directionslabel.configure(text=f"Wrong try again. Is the Second Card Higher or Lower?")
+            self.card2.configure(image=self.boc)
 
     def compareCards(self, cardX, cardY, ans):
         val1 = int(self.deck.convertValue(cardX))
