@@ -44,8 +44,25 @@ class Higherorlower(customtkinter.CTk):
         else:
             self.directionslabel.configure(text="Yay you can read")
 
-    def createGameLayout(self):
+    def compareCards(self, cardX, cardY, ans):
+        val1 = int(self.deck.convertValue(cardX))
+        val2 = int(self.deck.convertValue(cardY))
+        flag = False
 
+        if val1 == val2:
+            return True
+        
+        match (ans):
+            case "higher":
+                if val1 < val2:
+                    flag = True
+             
+            case "lower":
+                if val1 > val2:
+                    flag = True
+        return flag
+
+    def createGameLayout(self):
         #Image of first Card
         self.img1 = customtkinter.CTkImage(
             light_image=Image.open(Path(CARDS_FOLDER) / f"{self.curr.toString()}.png"),
