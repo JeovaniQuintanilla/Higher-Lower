@@ -45,9 +45,9 @@ class Higherorlower(customtkinter.CTk):
             self.directionslabel.configure(text="Invalid Guess Input, type either higher or lower.")
         else:
             self.getSecondCard()
-            self.after(9000, print("Switching cards now") )
-            self.bool1 = self.compareCards(self.curr,self.sCard,self.ans)
-            if (self.bool1==True):
+            self.after(4000, print("Switching cards now") )
+            bool1 = self.compareCards(self.curr,self.sCard,self.ans)
+            if (bool1==True):
                 self.switchCards()
                 self.updateScore()
                 self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower")
@@ -91,7 +91,6 @@ class Higherorlower(customtkinter.CTk):
                 case "lower":
                     if val1 > val2:
                         flag = True
-            
             print(flag)
             return flag
     
