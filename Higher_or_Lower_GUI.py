@@ -47,16 +47,17 @@ class Higherorlower(customtkinter.CTk):
             self.getSecondCard()
             self.after(4000, print("Switching cards now") )
             bool1 = self.compareCards(self.curr,self.sCard,self.ans)
+
             if (bool1==True):
                 self.switchCards()
-                self.updateScore()
+                self.incScore()
                 self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower")
                 print("score updated.")
-
             else:
+                self.resetScore()
                 self.directionslabel.configure(text=f"Wrong try again. Is the Second Card Higher or Lower?")
                 self.card2.configure(image=self.boc)
-                print("score not updated.")
+                print("score reset.")
         
     def getSecondCard(self):
         self.sCard = self.deck.pullACard()
@@ -66,7 +67,7 @@ class Higherorlower(customtkinter.CTk):
                 dark_image=Image.open(Path(CARDS_FOLDER) / f"{self.sCard.toString()}.png"),
                 size=(100, 145)
             )
-        self.directionslabel.configure(text=f"Second Card is {self.sCard.toString()} ")
+        self.directionslabel.configure(text=f"Second Card is {self.sCard.toString()}")
         self.card2.configure(image=self.img2)
         
     def switchCards(self):
@@ -94,12 +95,16 @@ class Higherorlower(customtkinter.CTk):
             print(flag)
             return flag
     
-    def updateScore(self):
+    def incScore(self):
         self.count+=1
         self.scoreLabel.configure(text=f"Score: {self.count}")
         if self.count > self.high_score:
             self.high_score = self.count
             self.high_scoreLabel.configure(text=f"High Score: {self.high_score}")
+    
+    def resetScore(self):
+        self.count=0
+        self.scoreLabel.configure(text=f"Score: {self.count}")
 
     def createGameLayout(self):
         #Image of first Card
