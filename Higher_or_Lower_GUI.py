@@ -16,7 +16,7 @@ class Higherorlower(customtkinter.CTk):
 
     def __init__(self):
         super().__init__()
-        self.highscore = 0
+        self.high_score = 0
         self.count = 0
         self.geometry("800x700")
         self.title("Higher & Lower")
@@ -28,7 +28,7 @@ class Higherorlower(customtkinter.CTk):
 
         self.deck.initDeck()
         self.curr = self.deck.pullACard()
-        print(self.curr.toString())
+        print(f"curr card: {self.curr.toString()}")
         self.createGameLayout()
 
         self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower??")
@@ -36,16 +36,16 @@ class Higherorlower(customtkinter.CTk):
         self.card2.configure(image=self.boc)
         self.sBtn.bind('<Button-1>', lambda e: self.confirmInput())
 
-    def confirmInput(self):
+    def confirmInput(self, event=None):
         self.ans = self.submitField.get().lower()
         print(self.ans)
+        #self.submitField.configure(state="disabled")
+        #self.sBtn.configure(state="disabled")
         if self.ans != "lower" and self.ans != "higher":
             self.directionslabel.configure(text="Invalid Guess Input, type either higher or lower.")
         else:
-            #self.directionslabel.configure(text="Yay you can read")
             self.sCard = self.deck.pullACard()
             print(f"SecondCard: {self.sCard.toString()}")
-            # Display the second card using a CTkLabel
             self.img2 = customtkinter.CTkImage(
                 light_image=Image.open(Path(CARDS_FOLDER) / f"{self.sCard.toString() }.png"),
                 dark_image=Image.open(Path(CARDS_FOLDER) / f"{self.sCard.toString() }.png"),
@@ -54,13 +54,8 @@ class Higherorlower(customtkinter.CTk):
             
             self.directionslabel.configure(text=f"Second Card is {self.sCard.toString()} ")
             self.card2.configure(image=self.img2)
-
-            self.after(2000, self.switchCards) #Pause Transition
-
-            self.submitField.configure(state="normal")
-            self.sBtn.configure(state="normal")
-            self.submitField.delete(0, "end")
-
+            self.after(2000, self.switchCards()) #Pause Transition
+     
     def switchCards(self):
         if self.compareCards(self.curr, self.sCard, self.ans):
             self.curr = self.sCard
@@ -70,9 +65,11 @@ class Higherorlower(customtkinter.CTk):
             self.updateScore()
             self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower")
             self.card2.configure(image=self.boc)
+            print("score updated.")
         else:
             self.directionslabel.configure(text=f"Wrong try again. Is the Second Card Higher or Lower?")
             self.card2.configure(image=self.boc)
+            print("score not updated.")
 
     def compareCards(self, cardX, cardY, ans):
         val1 = int(self.deck.convertValue(cardX))
@@ -81,16 +78,18 @@ class Higherorlower(customtkinter.CTk):
 
         if val1 == val2:
             return True
-        
-        match (ans):
-            case "higher":
-                if val1 < val2:
-                    flag = True
-             
-            case "lower":
-                if val1 > val2:
-                    flag = True
-        return flag
+        else:
+            match (ans):
+                case "higher":
+                    if val1 < val2:
+                        flag = True
+                
+                case "lower":
+                    if val1 > val2:
+                        flag = True
+            
+            print(flag)
+            return flag
     
     def updateScore(self):
         self.count+=1
@@ -127,12 +126,11 @@ class Higherorlower(customtkinter.CTk):
         self.submitField.pack()
 
         self.sBtn = customtkinter.CTkButton(self, text="Submit Guess")
-        self.sBtn.bind('<Button-1>',lambda e: self.confirmInput())
         self.sBtn.pack()
 
         self.scoreLabel = customtkinter.CTkLabel(self, text=f"Score: {self.count}")
         self.scoreLabel.place(x=680, y=625)
-        self.high_scoreLabel = customtkinter.CTkLabel(self, text=f"High-Score:{self.high_score}")
+        self.high_scoreLabel = customtkinter.CTkLabel(self, text=f"High-Score: {self.high_score}")
         self.high_scoreLabel.place(x=650, y=600)
 
 
