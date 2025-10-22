@@ -46,8 +46,12 @@ class Deck:
     
     def convertValue(self, c: Card):
         val = c.getFace()
-        if val == "J" or val == "Q" or val == "K":
-            return "10"
+        if val == "J":
+            return "11"
+        elif val == "Q":
+            return "12"
+        elif val == "K":
+            return "13"
         elif val == "A":
             return "1"
         else:
