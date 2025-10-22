@@ -44,36 +44,40 @@ class Higherorlower(customtkinter.CTk):
         if self.ans != "lower" and self.ans != "higher":
             self.directionslabel.configure(text="Invalid Guess Input, type either higher or lower.")
         else:
-            self.sCard = self.deck.pullACard()
-            print(f"SecondCard: {self.sCard.toString()}")
-            self.img2 = customtkinter.CTkImage(
-                light_image=Image.open(Path(CARDS_FOLDER) / f"{self.sCard.toString() }.png"),
-                dark_image=Image.open(Path(CARDS_FOLDER) / f"{self.sCard.toString() }.png"),
+            self.getSecondCard()
+            self.after(9000, print("Switching cards now") )
+            self.bool1 = self.compareCards(self.curr,self.sCard,self.ans)
+            if (self.bool1==True):
+                self.switchCards()
+                self.updateScore()
+                self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower")
+                print("score updated.")
+
+            else:
+                self.directionslabel.configure(text=f"Wrong try again. Is the Second Card Higher or Lower?")
+                self.card2.configure(image=self.boc)
+                print("score not updated.")
+        
+    def getSecondCard(self):
+        self.sCard = self.deck.pullACard()
+        print(f"SecondCard: {self.sCard.toString()}")
+        self.img2 = customtkinter.CTkImage(
+                light_image=Image.open(Path(CARDS_FOLDER) / f"{self.sCard.toString()}.png"),
+                dark_image=Image.open(Path(CARDS_FOLDER) / f"{self.sCard.toString()}.png"),
                 size=(100, 145)
             )
-            
-            self.directionslabel.configure(text=f"Second Card is {self.sCard.toString()} ")
-            self.card2.configure(image=self.img2)
-            self.after(2000, self.switchCards()) #Pause Transition
-     
-    def switchCards(self):
-        if self.compareCards(self.curr, self.sCard, self.ans):
-            self.curr = self.sCard
-            self.img1 = self.img2
-            self.card1.configure(image=self.img1)
+        self.directionslabel.configure(text=f"Second Card is {self.sCard.toString()} ")
+        self.card2.configure(image=self.img2)
         
-            self.updateScore()
-            self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower")
-            self.card2.configure(image=self.boc)
-            print("score updated.")
-        else:
-            self.directionslabel.configure(text=f"Wrong try again. Is the Second Card Higher or Lower?")
-            self.card2.configure(image=self.boc)
-            print("score not updated.")
+    def switchCards(self):
+        self.curr = self.sCard
+        self.img1 = self.img2
+        self.card1.configure(image=self.img1)
+        self.card2.configure(image=self.boc)
 
-    def compareCards(self, cardX, cardY, ans):
-        val1 = int(self.deck.convertValue(cardX))
-        val2 = int(self.deck.convertValue(cardY))
+    def compareCards(self,  x: Card,  y: Card, ans):
+        val1 = int(self.deck.convertValue(x))
+        val2 = int(self.deck.convertValue(y))
         flag = False
 
         if val1 == val2:
