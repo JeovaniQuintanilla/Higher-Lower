@@ -45,20 +45,24 @@ class Higherorlower(customtkinter.CTk):
             self.directionslabel.configure(text="Invalid Guess Input, type either higher or lower.")
         else:
             self.getSecondCard()
-            self.after(4000, print("Switching cards now") )
-            bool1 = self.compareCards(self.curr,self.sCard,self.ans)
+            self.after(2000, self.updateGame)
 
-            if (bool1==True):
-                self.switchCards()
-                self.incScore()
-                self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower")
-                print("score updated.")
-            else:
-                self.resetScore()
-                self.directionslabel.configure(text=f"Wrong try again. Is the Second Card Higher or Lower?")
-                self.card2.configure(image=self.boc)
-                print("score reset.")
         
+    def updateGame(self):
+        print("Switching cards now")
+        bool1 = self.compareCards(self.curr,self.sCard,self.ans)
+
+        if (bool1==True):
+            self.switchCards()
+            self.incScore()
+            self.directionslabel.configure(text=f"The first card is {self.curr.toString().replace("_", " ")}, is the next one Higher or Lower")
+            print("score updated.")
+        else:
+            self.resetScore()
+            self.directionslabel.configure(text=f"Wrong try again. Is the Second Card Higher or Lower?")
+            self.card2.configure(image=self.boc)
+            print("score reset.")
+
     def getSecondCard(self):
         self.sCard = self.deck.pullACard()
         print(f"SecondCard: {self.sCard.toString()}")
