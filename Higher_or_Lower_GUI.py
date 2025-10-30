@@ -11,6 +11,8 @@ import os
 
 
 CARDS_FOLDER = "Higher-Lower/playingCards"
+TABLE_PATH ="Higher-Lower/DealerTable.png"
+CARD_SIZE = (700, 504)
 
 class Higherorlower(customtkinter.CTk):
 
@@ -111,6 +113,11 @@ class Higherorlower(customtkinter.CTk):
         self.scoreLabel.configure(text=f"Score: {self.count}")
 
     def createGameLayout(self):
+        #Table Placement
+        self.my_Table = customtkinter.CTkImage(light_image=Image.open(Path(TABLE_PATH)), dark_image=Image.open(Path(TABLE_PATH)), size=(CARD_SIZE))
+        self.table = customtkinter.CTkLabel(self, image=self.my_Table, text="")
+        self.table.pack()
+
         #Image of first Card
         self.img1 = customtkinter.CTkImage(
             light_image=Image.open(Path(CARDS_FOLDER) / f"{self.curr.toString()}.png"),
